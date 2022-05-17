@@ -1,27 +1,13 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import logger from 'redux-logger'
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk'
+import counter from './counter'
+import user from './user'
+import auth from './auth'
 
-const initialState = {
-    title: 'Demo Redux',
-    counter: 0,
-}
+const combinedReducers = combineReducers({ counter, user, auth })
 
-const counter = (state = initialState, action) => {
-    switch(action.type) {
-        case 'INCREMENT':
-            return { 
-                ...state,
-                counter: state.counter + action.payload
-            }
-        case 'DECREMENT':
-            return { 
-                ...state,
-                counter: state.counter - action.payload
-            }
-        default: 
-            return state
-    }
-}
-
-const store = createStore(counter)
+const store = createStore(combinedReducers, composeWithDevTools(applyMiddleware(thunk, logger)))
 
 export default store;
