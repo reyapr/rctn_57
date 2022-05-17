@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
+import style from './test.module.css'
 class Pokemon extends React.Component {
     constructor() {
         super()
@@ -20,7 +20,7 @@ class Pokemon extends React.Component {
         axios.get(this.state.pokemonUrl)
             .then(res => {
                 this.setState({
-                    pokemonList: ''
+                    pokemonList: res.results.data
                 })
             })
     }
@@ -51,8 +51,8 @@ class Pokemon extends React.Component {
     render() {
         return (
             <div>
-                <div>List Pokemon</div>
-                <div style={{ textAlign: 'left'}}>
+                <div className={style.text}>List Pokemon</div>
+                <div className={style.text}>
                     <ul>
                         {this.state.pokemonList.map((pokemon, index) => {
                             return (

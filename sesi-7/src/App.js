@@ -15,7 +15,7 @@ function App() {
         <Counter/>
         <button onClick={() => setShowPokemon(!showPokemon)}>show pokemon</button>
         <hr/>
-        {showPokemon && <PokemonFunctional/>}
+        {showPokemon && <Pokemon/>}
       </ErrorBoundary>
     </div>
   );

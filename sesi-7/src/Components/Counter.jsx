@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import './style.css'
+import style from './test1.module.css'
 
 class Counter extends React.Component {
     constructor() {
@@ -26,7 +28,7 @@ class Counter extends React.Component {
     render() {
         return (
             <div>
-                <div>{this.state.count}</div>
+                <div className={style.text}>{this.state.count}</div>
                 <div>
                     <button onClick={() => this.setNum(0)}>+</button>
                     <button onClick={() => this.setNum(-1)}>-</button>
