@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement } from './actions/counter';
@@ -60,8 +59,8 @@ function App() {
       </div>
       <hr />
       <h1>{selector.title}</h1>
-      <h1>{selector.counter}</h1>
-      <button onClick={() => dispatch(increment(2))}>+</button>
+      <h1 data-testid='counter'>{selector.counter}</h1>
+      <button id='increment' onClick={() => dispatch(increment(2))}>+</button>
       <button onClick={() => dispatch(decrement(1))}>-</button>
       <hr />
       <h1>{selector.title}</h1>
